@@ -59,5 +59,3 @@ RUN git clone https://git.code.sf.net/p/adi-buildroot/code adi-buildroot-code -b
 RUN git clone https://git.code.sf.net/p/adi-toolchain/blackfin adi-toolchain-blackfin -b 2014R1
 RUN git clone https://git.code.sf.net/p/adi-linux/code adi-linux-code -b 2014R1
 RUN git clone https://git.code.sf.net/p/adi-u-boot/code adi-u-boot-code -b 2014R1
-
-USER user
