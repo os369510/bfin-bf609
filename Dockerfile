@@ -8,7 +8,7 @@ LABEL Owner=os369510
 
 USER root
 
-RUN apt-get update && apt-get install -yq \
+RUN apt-get update && apt-get install -yqq \
     curl \
     autoconf \
     automake \
@@ -54,5 +54,13 @@ RUN apt-get update && apt-get install -yq \
     subversion \
     locales \
     libx11-dev
+
+RUN useradd -ms /bin/bash jeremysu
+
+RUN apt-get autoclean -yqq && \
+    apt-get autoremove -yqq && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /tmp/* && \
+    rm -rf /var/tmp/*
 
 USER jeremysu
