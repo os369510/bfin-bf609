@@ -55,4 +55,4 @@ RUN apt-get update && apt-get install -yq \
     locales \
     libx11-dev
 
-USER user
+USER jeremysu
