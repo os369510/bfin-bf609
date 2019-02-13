@@ -58,6 +58,10 @@ RUN apt-get update && apt-get install -yqq \
     libx11-dev \
     sudo
 
+RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-uclibc-full-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
+RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
+RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-elf-gcc-4.5-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
+
 RUN useradd -ms /bin/bash ${User} && echo "${User}:${User}" | chpasswd && adduser ${User} sudo
 
 RUN apt-get autoclean -yqq && \
