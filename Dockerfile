@@ -61,9 +61,9 @@ RUN apt-get update && apt-get install -yqq \
     pciutils \
     usbutils
 
-RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-uclibc-full-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
-RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
-RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-elf-gcc-4.5-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
+RUN wget -qO- https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-uclibc-full-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf - -C /
+RUN wget -qO- https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf - -C /
+RUN wget -qO- https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-elf-gcc-4.5-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf - -C /
 
 RUN useradd -ms /bin/bash ${User} && echo "${User}:${User}" | chpasswd && adduser ${User} sudo
 
