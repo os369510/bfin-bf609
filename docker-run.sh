@@ -106,7 +106,8 @@ case $1 in
 
         setup_dotfiles
 
-        docker run -it --rm -w /home/jeremysu -v $VOL:/home/jeremysu --name $DOCKER_NAME $DOCKER_IMG
+        docker run -it --rm -w /home/jeremysu -v $VOL:/home/jeremysu \
+        --device=/dev/ttyUSB0 --name $DOCKER_NAME $DOCKER_IMG
         ;;
     *)
         usage
