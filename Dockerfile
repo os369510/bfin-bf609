@@ -3,6 +3,8 @@ FROM ubuntu:18.04
 MAINTAINER os369510@gmail.com
 
 ENV Contact=os369510@gmail.com
+ENV User=jeremysu
+ENV PATH="/opt/uClinux/bfin-elf/bin:/opt/uClinux/bfin-linux-uclibc/bin:/opt/uClinux/bfin-uclinux/bin:${PATH}"
 
 LABEL Owner=os369510
 
@@ -56,10 +58,7 @@ RUN apt-get update && apt-get install -yqq \
     libx11-dev \
     sudo
 
-RUN useradd -ms /bin/bash jeremysu
-
-RUN echo export
-'PATH=/opt/uClinux/bfin-elf/bin:/opt/uClinux/bfin-linux-uclibc/bin:/opt/uClinux/bfin-uclinux/bin:$PATH' >> /home/jeremysu/.bashrc
+RUN useradd -ms /bin/bash ${User}
 
 RUN apt-get autoclean -yqq && \
     apt-get autoremove -yqq && \
@@ -67,4 +66,4 @@ RUN apt-get autoclean -yqq && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/*
 
-USER jeremysu
+USER ${User}
