@@ -58,6 +58,9 @@ RUN apt-get update && apt-get install -yqq \
 
 RUN useradd -ms /bin/bash jeremysu
 
+RUN echo export
+'PATH=/opt/uClinux/bfin-elf/bin:/opt/uClinux/bfin-linux-uclibc/bin:/opt/uClinux/bfin-uclinux/bin:$PATH' >> /home/jeremysu/.bashrc
+
 RUN apt-get autoclean -yqq && \
     apt-get autoremove -yqq && \
     rm -rf /var/lib/apt/lists/* && \
