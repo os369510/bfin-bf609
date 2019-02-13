@@ -53,7 +53,8 @@ RUN apt-get update && apt-get install -yqq \
     bc \
     subversion \
     locales \
-    libx11-dev
+    libx11-dev \
+    sudo
 
 RUN useradd -ms /bin/bash jeremysu
 
