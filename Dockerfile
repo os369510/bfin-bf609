@@ -56,7 +56,10 @@ RUN apt-get update && apt-get install -yqq \
     subversion \
     locales \
     libx11-dev \
-    sudo
+    sudo \
+    iproute2 \
+    pciutils \
+    usbutils
 
 RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-uclibc-full-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
 RUN wget https://sourceforge.net/projects/adi-toolchain/files/2014R1/2014R1_45-RC2/x86_64/blackfin-toolchain-2014R1_45-RC2.x86_64.tar.bz2/download| tar jxf /
