@@ -58,7 +58,7 @@ RUN apt-get update && apt-get install -yqq \
     libx11-dev \
     sudo
 
-RUN useradd -ms /bin/bash ${User}
+RUN useradd -ms /bin/bash ${User} && echo "${User}:${User}" | chpasswd && adduser ${User} sudo
 
 RUN apt-get autoclean -yqq && \
     apt-get autoremove -yqq && \
