@@ -5,6 +5,9 @@ https://blackfin.uclinux.org/
 adsp-bf609-ezkit-manual
 https://www.analog.com/media/en/dsp-documentation/evaluation-kit-manuals/adsp-bf609_ezkit_manual.pdf
 
+Please use 4.3 toolchain
+https://ez.analog.com/dsp/software-and-development-tools/linux-blackfin/f/q-a/69007/bf609-uclinux-booting-fails/86228#86228
+
 Customize u-boot config
 include/configs/bf609-ezkit.h
 
@@ -35,4 +38,5 @@ Reference:
 https://community.nxp.com/thread/457348
 
 5. host-mtd 1.5.0 build fail
-Use mtd-util-2.0
+5.1 mark '__USE_XOPEN2K' and corresponding #endif within /usr/include/netdb.h
+5.2 remove 'extern' from "host-mtd-1.5.0/mkfs.ubifs/hashtable/hashtable_itr.h"
