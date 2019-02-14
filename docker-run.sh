@@ -107,7 +107,7 @@ case $1 in
         setup_dotfiles
 
         docker run -it --rm -w /home/jeremysu -v $VOL:/home/jeremysu \
-        --device=/dev/ttyUSB0 --name $DOCKER_NAME $DOCKER_IMG
+        --privileged -v /dev/bus/usb:/dev/bus/usb --name $DOCKER_NAME $DOCKER_IMG
         ;;
     *)
         usage
