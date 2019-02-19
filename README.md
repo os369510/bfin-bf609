@@ -12,7 +12,8 @@ make
 **1. Unescaped left brace in regex is illegal here in regex; marked by <-- HERE in m/\${ <-- HERE ([^ \t=:+{}]+)}/ at /home/jeremysu/adi-buildroot-code/output/host/usr/bin/automake line 4159.**  
   
 Ans:  
-replace '{' by "\{" within "adi-buildroot-code/output/host/usr/bin/automake"
+replace '{' by "\{" within "adi-buildroot-code/output/host/usr/bin/automake"  
+  
 ---
 **2. Building ncurses failed, log shows:**  
   
