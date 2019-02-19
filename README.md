@@ -10,12 +10,8 @@ make
 ```
 ## Fix building buildroot failure
 **1. Unescaped left brace in regex is illegal here in regex; marked by <-- HERE in m/\${ <-- HERE ([^ \t=:+{}]+)}/ at /home/jeremysu/adi-buildroot-code/output/host/usr/bin/automake line 4159.**  
-  
-*
 Ans:
 replace '{' by "\{" within "adi-buildroot-code/output/host/usr/bin/automake"
-*  
-  
 ---
 **2. Building ncurses failed, log shows:**  
 ```
@@ -23,27 +19,21 @@ In file included from ../ncurses/curses.priv.h:283:0,
                  from ../ncurses/lib_gen.c:19:
 _32530.c:835:15: error: expected ')' before 'int'
 ```
-  
-[Fix](https://github.com/pbouda/buildroot-qt-dev/issues/6)  
-  
+[Modification for fixing](https://github.com/pbouda/buildroot-qt-dev/issues/6)  
 ---
 **3. Building lzo failed, log shows:**  
 ```
 checking whether to build assembly versions... no
 checking whether your compiler passes the ACC conformance test... FAILED
 ```
-  
-[Fix](https://community.nxp.com/thread/457348)  
-  
+[Modification for fixing](https://community.nxp.com/thread/457348)  
 ---
 **4. Building host-mtd 1.5.0 failed**  
-  
-Fix:  
 ```
+Ans:
 1. mark '__USE_XOPEN2K' and corresponding #endif within /usr/include/netdb.h
 2. remove 'extern' from "host-mtd-1.5.0/mkfs.ubifs/hashtable/hashtable_itr.h"
 ```
-  
 ---
 
 ## Customize configuration and Enablement
