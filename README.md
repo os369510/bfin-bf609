@@ -10,7 +10,7 @@ make
 ```
 ## Fix building buildroot failure
 **1. Unescaped left brace in regex is illegal here in regex; marked by <-- HERE in m/\${ <-- HERE ([^ \t=:+{}]+)}/ at /home/jeremysu/adi-buildroot-code/output/host/usr/bin/automake line 4159.**
-*    -Fix: replace '{' by "\{" within "adi-buildroot-code/output/host/usr/bin/automake" *  
+     -*Fix: replace '{' by "\{" within "adi-buildroot-code/output/host/usr/bin/automake"*  
 **2. Building ncurses failed, log shows:**
 ```
 In file included from ../ncurses/curses.priv.h:283:0,
