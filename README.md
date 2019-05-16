@@ -97,7 +97,6 @@ TFTPD_ARGS="--secure /srv/tftp/"
 ```
 on Client  
 ```
-```
 root:/> tftp -g -r test 192.168.10.1  69
 ```
 
