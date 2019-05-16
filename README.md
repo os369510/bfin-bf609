@@ -1,4 +1,5 @@
 ## Usage
+**[Host] Building Image**  
 ```
 docker pull os369510/bfin-bf609
 git clone https://github.com/os369510/bfin-bf609.git
@@ -7,6 +8,18 @@ git clone https://git.code.sf.net/p/adi-buildroot/code adi-buildroot-code -b 201
 git clone https://git.code.sf.net/p/adi-linux/code adi-buildroot/linux/linux-kernel -b 2014R1
 make bf609-ezkit_config
 make
+```
+**[Target] Using Image**  
+```
+---uboot---
+bfin> ext2ls mmc 0
+<DIR>       4096 .
+<DIR>       4096 ..
+<DIR>      16384 lost+found
+        10222811 uImage
+bfin> ext2load mmc 0 0x1000000 uImage
+bfin> bootm
+---shell---
 ```
 ## Fix building buildroot failure
 **1. Unescaped left brace in regex is illegal here in regex; marked by <-- HERE in m/\${ <-- HERE ([^ \t=:+{}]+)}/ at /home/jeremysu/adi-buildroot-code/output/host/usr/bin/automake line 4159.**  
@@ -49,6 +62,44 @@ Ans:
 - [Enable WVGA/LCD](https://blackfin.uclinux.org/doku.php?id=video_loop_back&s[]=wvga&s[]=lcd)  
 - [Not found 'Encoders, decoders, sensors and other helper chips'](https://forum.armbian.com/topic/151-how-to-activate-device-drivers-multimedia-support-encoders-decoders-sensors-and-other-helper-chipsvideo_saa711x/)  
 - Modify 'include/configs/bf609-ezkit.h' for customizing u-boot  
+
+## TFTP setup (on my Arch)  
+```
+$ cat /etc/xinetd.d/tftp
+service tftp
+{
+	socket_type	= dgram
+	protocol	= udp
+	wait		= yes
+	user		= nobody
+	server		= /usr/sbin/in.tftpd
+	server_args	= -s -c /srv/tftp/
+	disable		= no
+}
+```
+```
+$ cat /usr/lib/systemd/tftpd.service
+[Unit]
+Description=hpa's original TFTP daemon
+After=network.target
+
+[Service]
+Type=forking
+EnvironmentFile=/etc/conf.d/tftpd
+ExecStart=/usr/bin/in.tftpd --listen $TFTPD_ARGS
+
+[Install]
+WantedBy=multi-user.target
+```
+```
+$ cat /etc/conf.d/tftpd
+TFTPD_ARGS="--secure /srv/tftp/"
+```
+on Client  
+```
+```
+root:/> tftp -g -r test 192.168.10.1  69
+```
 
 ## Reference
 ### Documents
