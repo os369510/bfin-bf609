@@ -100,6 +100,19 @@ on Client
 root:/> tftp -g -r test 192.168.10.1  69
 ```
 
+## Configurations
+in host:  
+```
+ip addr add 192.168.10.1/24 dev enp0s31f6;
+```
+in u-boot:  
+in system:  
+```
+ip addr add 192.168.10.2/24 dev eth0;
+ip link set eth0 up
+ip route add default via 192.168.10.1 dev eth0;
+```
+
 ## Reference
 ### Documents
 - [Analog Devices Open Source Projects For Blackfin Processors](https://blackfin.uclinux.org)  
