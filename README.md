@@ -9,6 +9,10 @@ git clone https://git.code.sf.net/p/adi-linux/code adi-buildroot/linux/linux-ker
 make bf609-ezkit_config
 make
 ```
+```
+make linux-dirclean
+make linux-rebuild
+```
 **[Target] Using Image**  
 ```
 ---uboot---
@@ -140,3 +144,8 @@ kgdb: handle_exception; trap [0x4]
 - [Build system overview](https://blackfin.uclinux.org/doku.php?id=buildroot:build-system)  
 ### Blackfin on Linux
 - [Blackfin linux feature (incomplete)](https://blackfin.uclinux.org/doku.php?id=uclinux-dist:features)  
+
+------
+The current status:  
+LCD driver failed to initialized LCD board, maybe need to study the spec of LCD.  
+I decide to stop this job due to Linux is not longer support blackfin.  
