@@ -117,6 +117,9 @@ ip link set eth0 up
 ip route add default via 192.168.10.1 dev eth0;
 ```
 
+## Flash bootloader in Windows
+cldp -proc ADSP-BF609 -emu kit -driver "J:\BF609\falsh driver\bf609_pc28f128p33_dpia.dxe" -cmd info -cmd prog -erase all -format bin -file "J:\BF609\uBoot\u-boot-bf609-ezkit-spi-2014R1.ldr" -cmd compare -format bin -file "J:\BF609\uBoot\u-boot-bf609-ezkit-spi-2014R1.ldr"
+
 ## Reference
 ### Documents
 - [Analog Devices Open Source Projects For Blackfin Processors](https://blackfin.uclinux.org)  
